@@ -1,5 +1,6 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
+import datetime
 
 
 class SchoolHolidays(models.Model):
@@ -48,3 +49,12 @@ class SchoolHolidays(models.Model):
 
     def __str__(self):
         return "{} {}".format(self.get_name_display(), self.first_holiday.year)
+
+    def get_holidays(self):
+        first = self.first_holiday
+        last = self.last_holiday
+        output = [first, ]
+        if last:
+            output.extend([first + datetime.timedelta(
+                days=x) for x in range(0, (last-first).days + 1)])
+        return output

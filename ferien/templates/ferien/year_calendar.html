@@ -1,19 +1,43 @@
 {% extends 'base.html' %}
 
+{% load i18n %}
+
 {% block base_content %}
+
+<h1>{% trans "Calendar" %} {{ year }}</h1>
 <div id="calendar">
-  {% for month in year_calendar %}
-  {% if forloop.counter in "159" %} 
+  {% for month, name, number in year_calendar %}
+  {% if forloop.counter == 1 or forloop.counter == 5 or forloop.counter == 9 %} 
   <div class="row">
   {% endif %}
-    {% for col in "xxxx" %}
-    {% endfor %}
-  {% if forloop.counter in "159" %} 
+    <div class="mblock">
+      <table border=0 cellspacing=0 cellpadding=0>
+        <tr>
+          <th class="month" colspan="8">{{ name }}</th>
+        </tr><tr class="weekdays">
+          <th>&nbsp;</th><th>Mo</th><th>Di</th><th>Mi</th><th>Do</th><th>Fr</th><th>Sa</th><th>So</th>
+        </tr>
+        {% for week in month %}<tr>
+          <th class="week">{{ week.0 | date:"W" }}</th>
+          {% for day in week %}
+          {% if day.month != number %}<td class="empty">&nbsp;</td>
+          {% else %}
+          <td class="{{ day | date:"D" }}
+            {% if day in bank_holidays %} Bank{% endif %}
+            {% if day in school_holidays %} School{% endif %}
+            ">{{ day | date:"j" }}</td>
+          {% endif %}
+          {% endfor %}
+        </tr>{% endfor %}
+      </table>
+    </div>
+  {% if forloop.counter == 4 or forloop.counter == 8 or forloop.counter == 12 %} 
   </div>
   <div style="cear:both;"></div>
   {% endif %}
   {% endfor %}
 </div>
+
 {% endblock %}
 
 <!-- 
