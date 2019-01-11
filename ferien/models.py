@@ -7,34 +7,30 @@ class SchoolHolidays(models.Model):
     NRW = 'DE-NW'
     NDS = 'DE-NI'
     COUNTRY_CHOICES = (
-        ('Germany', (
-            ('DE-BW', 'Baden-Württemberg'),
-            ('DE-BY', 'Bayern'),
-            ('DE-BE', 'Berlin'),
-            ('DE-BB', 'Brandenburg'),
-            ('DE-HB', 'Bremen'),
-            ('DE-HH', 'Hamburg'),
-            ('DE-HE', 'Hessen'),
-            ('DE-MV', 'Mecklenburg-Vorpommern'),
-            (NDS, 'Niedersachsen'),
-            (NRW, 'Nordrhein-Westfalen'),
-            ('DE-RP', 'Rheinland-Pfalz'),
-            ('DE-SL', 'Saarland'),
-            ('DE-SN', 'Sachsen'),
-            ('DE-ST', 'Sachsen-Anhalt'),
-            ('DE-SH', 'Schleswig-Holstein'),
-            ('DE-TH', 'Thüringen'),
-        ),),
+        ('DE-BW', 'Baden-Württemberg'),
+        ('DE-BY', 'Bayern'),
+        ('DE-BE', 'Berlin'),
+        ('DE-BB', 'Brandenburg'),
+        ('DE-HB', 'Bremen'),
+        ('DE-HH', 'Hamburg'),
+        ('DE-HE', 'Hessen'),
+        ('DE-MV', 'Mecklenburg-Vorpommern'),
+        (NDS, 'Niedersachsen'),
+        (NRW, 'Nordrhein-Westfalen'),
+        ('DE-RP', 'Rheinland-Pfalz'),
+        ('DE-SL', 'Saarland'),
+        ('DE-SN', 'Sachsen'),
+        ('DE-ST', 'Sachsen-Anhalt'),
+        ('DE-SH', 'Schleswig-Holstein'),
+        ('DE-TH', 'Thüringen'),
     )
     SF = 'SF'
     HOLIDAY_CHOICES = (
-        ('Germany', (
-            ('OF', 'Osterferien'),
-            ('PF', 'Pfingstferien'),
-            ('SF', 'Sommerferien'),
-            ('HF', 'Herbstferien'),
-            ('WF', 'Weihnachtsferien'),
-        ),),
+        ('OF', 'Osterferien'),
+        ('PF', 'Pfingstferien'),
+        ('SF', 'Sommerferien'),
+        ('HF', 'Herbstferien'),
+        ('WF', 'Weihnachtsferien'),
     )
 
     first_holiday = models.DateField(verbose_name=_("First Holiday"))

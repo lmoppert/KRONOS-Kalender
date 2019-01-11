@@ -18,6 +18,7 @@ from django.conf import settings
 from django.urls import include, path
 
 urlpatterns = [
+    path('ferien/', include('ferien.urls')),
     path('admin/', admin.site.urls),
 ]
 

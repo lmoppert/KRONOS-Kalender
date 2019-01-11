@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+
+{% block base_content %}
+
+<h2>{% trans "Available Calendars" %}</h2>
+<ul>
+  {% for choice in choices %}
+  <li>
+    <a href="{% url 'country' choice.0 year %}">
+      {{ choice.1 }}
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+
+{% endblock %}
+
+<!-- 
+    vim:syntax=htmldjango:ts=2:sw=2:sts=2:nowrap
+-->

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block base_content %}
+<div id="calendar">
+  {% for month in year_calendar %}
+  {% if forloop.counter in "159" %} 
+  <div class="row">
+  {% endif %}
+    {% for col in "xxxx" %}
+    {% endfor %}
+  {% if forloop.counter in "159" %} 
+  </div>
+  <div style="cear:both;"></div>
+  {% endif %}
+  {% endfor %}
+</div>
+{% endblock %}
+
+<!-- 
+    vim:syntax=htmldjango:ts=2:sw=2:sts=2:nowrap
+-->
