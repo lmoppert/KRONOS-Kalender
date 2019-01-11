@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
-from private import LOCAL_SECRET_KEY, PSQL_PASS
+from kalender.private import LOCAL_SECRET_KEY, PSQL_PASS
 from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_extensions',
     'debug_toolbar',
+    'ferien',
 ]
 
 MIDDLEWARE = [
@@ -76,7 +77,7 @@ WSGI_APPLICATION = 'kalender.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgres',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'kalender',
         'HOST': 'localhost',
         'USER': 'kalender',

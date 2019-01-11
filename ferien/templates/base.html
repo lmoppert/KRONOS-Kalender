@@ -1,0 +1,19 @@
+{% load static from staticfiles %}
+{% load i18n %}
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{% static 'ferien/css/base.css' %}">
+    <title>{% trans "Holiday Calendar" %}</title>
+  </head>
+  <body>
+    <h1>{% trans "Holiday Calendar" %}</h1>
+    {% block base_content %} {% endblock %}
+  </body>
+</html>
+<!-- 
+    vim:syntax=htmldjango:ts=2:sw=2:sts=2:nowrap
+-->
