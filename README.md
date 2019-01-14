@@ -23,15 +23,17 @@ $ sudo -u postgres createdb -O kalender kalender
 
 Die Benötigte Python Pakete sind im Pipfile hinterlegt:
 
-    * django
-    * psycopg2
-    * django-extensions
-    * holidays
-    * dev: django-debug-toolbar
+  * django
+  * psycopg2
+  * django-extensions
+  * holidays
+  * dev: django-debug-toolbar
 
-Installation der Pakete mit pipenv:  
+Installation der Pakete mit pipenv, aktivieren der Umgebung und initialisieren der Anwendung:  
 
 ```console
 $ pipenv install --dev
 $ pipenv shell
+$ python3 manage.py migrate
+$ python3 manage.py compilemessages
 ```
