@@ -23,10 +23,15 @@ def country_calendar(request, year, location):
     state = location.split('-')[1]
     bank_holidays = holidays.CountryHoliday(country, prov=state)
     school_holidays = []
+    region = "Unknown"
+    for x in models.SchoolHolidays.COUNTRY_CHOICES:
+        if x[0] == location:
+            region = x[1]
     for holiday in models.SchoolHolidays.objects.filter(country=location):
         school_holidays.extend(holiday.get_holidays())
     context = {
         'year': year,
+        'state': region,
         'bank_holidays': bank_holidays,
         'school_holidays': school_holidays,
         'year_calendar': year_calendar,

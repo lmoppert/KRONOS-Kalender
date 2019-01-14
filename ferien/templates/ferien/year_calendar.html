@@ -4,7 +4,10 @@
 
 {% block base_content %}
 
-<h1>{% trans "Calendar" %} {{ year }}</h1>
+<h1>
+  {% trans "Calendar" %} {{ year }}
+  <small>{{ state }}</small>
+</h1>
 <div id="calendar">
   {% for month, name, number in year_calendar %}
   {% if forloop.counter == 1 or forloop.counter == 5 or forloop.counter == 9 %} 

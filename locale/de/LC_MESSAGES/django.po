@@ -1,0 +1,26 @@
+# Translations for Kalender project
+# Copyright (C) 2012 KRONOS TITAN GmbH
+# This file is distributed under the same license as the kalender package.
+# Lutz Moppert <lutz.moppert@kronosww.com>, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kalender \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-01-11 17:16+0000\n"
+"PO-Revision-Date: 2019-01-11 17:16+0000\n"
+"Last-Translator: Lutz Moppert <lutz.moppert@kronosww.com>\n"
+"Language-Team: German\n"
+"Language: German\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: kalender/settings.py:111
+msgid "German"
+msgstr "Deutsch"
+
+#: kalender/settings.py:112
+msgid "English"
+msgstr "Englisch"

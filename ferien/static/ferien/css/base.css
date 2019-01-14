@@ -5,6 +5,9 @@ h1 {
     width: 100%;
     text-align: center;
 }
+h1 small {
+    color: #999;
+}
 #calendar .row {
     padding: 15px 0;
     clear: both;
@@ -12,6 +15,7 @@ h1 {
 #calendar .mblock {
     padding: 0 25px;
     float: left;
+    min-width: 300px;
 }
 #calendar th, #calendar td {
     text-align: right;
@@ -41,8 +45,14 @@ h1 {
 #calendar td.Sa {
     background: #eee;
 }
+#calendar td.Sa.School {
+    background: #bedeb9;
+}
 #calendar td.So {
     background: #ddd;
     font-weight: bold;
     color: #e22;
+}
+#calendar td.So.School {
+    background: #aecea9;
 }
