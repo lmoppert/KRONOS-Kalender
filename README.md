@@ -3,13 +3,13 @@
 ## Allgemeine Informationen
 
 * Diese Django App dient der visualisierung eines Jahreskalenders mit Feiertagen und Schulferien.
-* Das ganze ist noch in einer frÃ¼hen Entwicklungsstufe
+* Das ganze ist noch in einer frühen Entwicklungsstufe
 
 ## Installation
 
-BenÃ¶tigt wird eine virtuelle Python3 Umgebung und eine PostgreSQL-Datenbank
+Benötigt wird eine virtuelle Python3 Umgebung und eine PostgreSQL-Datenbank
 
-* BenÃ¶tigte Python Pakete:
+* Benötigte Python Pakete:
     * django
     * psycopg2
     * django-extensions
@@ -19,15 +19,11 @@ BenÃ¶tigt wird eine virtuelle Python3 Umgebung und eine PostgreSQL-Datenbank
 
 Einrichten mit:
   
-``` # bash
-pipenv install --dev
-pipenv shell
-```
-
-
+  pipenv install --dev
+  pipenv shell
+  
 Die Datenbank und einen entsprechenden User anlegen:
 
-``` # bash
-sudo -u postgres createuser -d -P kalender
-sudo -u postgres createdb -O kalender kalender
-```
+  sudo -u postgres createuser -d -P kalender
+  sudo -u postgres createdb -O kalender kalender
+
