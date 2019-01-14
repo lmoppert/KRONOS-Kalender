@@ -1,11 +1,11 @@
-# README #
+# README
 
-### Allgemeine Informationen ###
+## Allgemeine Informationen
 
 * Diese Django App dient der visualisierung eines Jahreskalenders mit Feiertagen und Schulferien.
 * Das ganze ist noch in einer frühen Entwicklungsstufe
 
-### Installation ###
+## Installation
 
 * Benötigt wird eine virtuelle Python3 Umgebung und eine PostgreSQL-Datenbank
 * Benötigte Pakete:
