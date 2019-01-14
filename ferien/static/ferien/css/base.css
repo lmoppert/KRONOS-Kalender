@@ -3,10 +3,27 @@ body {
 }
 h1 {
     width: 100%;
-    text-align: center;
+    text-align: left;
+    padding-left: 25px;
 }
 h1 small {
     color: #999;
+    padding-left: 25px;
+}
+.holidays {
+    padding: 0;
+    float: left;
+    width: 50%;
+}
+.holidays table {
+    padding: 50px 10px 25px 10px;
+}
+.holidays table td,
+.holidays table th {
+    padding-left: 15px;
+}
+.holidays table th {
+    text-align: left;
 }
 #calendar .row {
     padding: 15px 0;

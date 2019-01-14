@@ -22,6 +22,11 @@ def country_calendar(request, year, location):
     country = location.split('-')[0]
     state = location.split('-')[1]
     bank_holidays = holidays.CountryHoliday(country, prov=state)
+    new_year = timezone.datetime.fromisoformat("{}-01-01".format(year)).date()
+    new_year in bank_holidays
+    holiday_list = (
+        list(bank_holidays.items())[:len(bank_holidays)//2],
+        list(bank_holidays.items())[len(bank_holidays)//2:])
     school_holidays = []
     region = "Unknown"
     for x in models.SchoolHolidays.COUNTRY_CHOICES:
@@ -35,5 +40,6 @@ def country_calendar(request, year, location):
         'bank_holidays': bank_holidays,
         'school_holidays': school_holidays,
         'year_calendar': year_calendar,
+        'holiday_list': holiday_list,
     }
     return render(request, 'ferien/year_calendar.html', context=context)

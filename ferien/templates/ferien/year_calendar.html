@@ -10,7 +10,8 @@
 </h1>
 <div id="calendar">
   {% for month, name, number in year_calendar %}
-  {% if forloop.counter == 1 or forloop.counter == 5 or forloop.counter == 9 %} 
+  {#% if forloop.counter == 1 or forloop.counter == 5 or forloop.counter == 9 %#} 
+  {% if forloop.counter == 1 or forloop.counter == 4 or forloop.counter == 7 or forloop.counter == 10 %} 
   <div class="row">
   {% endif %}
     <div class="mblock">
@@ -34,11 +35,28 @@
         </tr>{% endfor %}
       </table>
     </div>
-  {% if forloop.counter == 4 or forloop.counter == 8 or forloop.counter == 12 %} 
+  {#%  if forloop.counter == 4 or forloop.counter == 8 or forloop.counter == 12 %#} 
+  {% if forloop.counter == 3 or forloop.counter == 6 or forloop.counter == 9 or forloop.counter == 12 %} 
   </div>
-  <div style="cear:both;"></div>
+  <div style="clear:both;"></div>
   {% endif %}
   {% endfor %}
+</div>
+<div id="bankholidays">
+  <div class="holidays">
+    <table>
+      {% for day, name in holiday_list.0 %}
+      <tr><th>{{ day | date:"d. F" }}</th><td>{{ name }}</td></tr>
+      {% endfor %}
+    </table>
+  </div>
+  <div class="holidays">
+    <table>
+      {% for day, name in holiday_list.1 %}
+      <tr><th>{{ day | date:"d. F" }}</th><td>{{ name }}</td></tr>
+      {% endfor %}
+    </table>
+  </div>
 </div>
 
 {% endblock %}
