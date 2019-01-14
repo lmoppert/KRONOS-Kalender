@@ -7,11 +7,27 @@
 
 ## Installation
 
-* Benötigt wird eine virtuelle Python3 Umgebung und eine PostgreSQL-Datenbank
-* Benötigte Pakete:
+Benötigt wird eine virtuelle Python3 Umgebung und eine PostgreSQL-Datenbank
+
+* Benötigte Python Pakete:
     * django
     * psycopg2
     * django-extensions
     * holidays
 * Optionale Pakete (Entwicklung):
-    * django-debug-toolbar = "*"
+    * django-debug-toolbar
+
+Einrichten mit:
+  
+``` # bash
+pipenv install --dev
+pipenv shell
+```
+
+
+Die Datenbank und einen entsprechenden User anlegen:
+
+``` # bash
+sudo -u postgres createuser -d -P kalender
+sudo -u postgres createdb -O kalender kalender
+```
