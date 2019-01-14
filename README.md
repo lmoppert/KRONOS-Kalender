@@ -19,11 +19,15 @@ Benötigt wird eine virtuelle Python3 Umgebung und eine PostgreSQL-Datenbank
 
 Einrichten mit:
   
-  pipenv install --dev
-  pipenv shell
+```console
+$ pipenv install --dev
+$ pipenv shell
+```
   
 Die Datenbank und einen entsprechenden User anlegen:
 
-  sudo -u postgres createuser -d -P kalender
-  sudo -u postgres createdb -O kalender kalender
+```console
+$ sudo -u postgres createuser -d -P kalender
+$ sudo -u postgres createdb -O kalender kalender
+```
 
