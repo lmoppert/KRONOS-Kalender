@@ -15,12 +15,9 @@ class Country(models.Model):
         ('', 'No Regions defined'),
     )
     country = models.CharField(max_length=100, verbose_name=_("Country"))
-    country_code = models.CharField(max_length=3, blank=True,
-                                    verbose_name=_("Country Code"))
     region = models.CharField(max_length=100, blank=True,
                               verbose_name=_("Region"))
-    region_code = models.CharField(max_length=3, blank=True,
-                                   verbose_name=_("Region Code"))
+    iso = models.CharField(max_length=6, blank=True, verbose_name=_("ISO Code"))
     region_type = models.CharField(max_length=1, choices=REGION_TYPES,
                                    blank=True, verbose_name=_("Region Type"))
 
@@ -37,26 +34,6 @@ class Country(models.Model):
 
 class SchoolHolidays(models.Model):
     """Model for school holidays for different years and locations"""
-    NRW = 'DE-NW'
-    NDS = 'DE-NI'
-    COUNTRY_CHOICES = (
-        ('DE-BW', 'Baden-Württemberg'),
-        ('DE-BY', 'Bayern'),
-        ('DE-BE', 'Berlin'),
-        ('DE-BB', 'Brandenburg'),
-        ('DE-HB', 'Bremen'),
-        ('DE-HH', 'Hamburg'),
-        ('DE-HE', 'Hessen'),
-        ('DE-MV', 'Mecklenburg-Vorpommern'),
-        (NDS, 'Niedersachsen'),
-        (NRW, 'Nordrhein-Westfalen'),
-        ('DE-RP', 'Rheinland-Pfalz'),
-        ('DE-SL', 'Saarland'),
-        ('DE-SN', 'Sachsen'),
-        ('DE-ST', 'Sachsen-Anhalt'),
-        ('DE-SH', 'Schleswig-Holstein'),
-        ('DE-TH', 'Thüringen'),
-    )
     SF = 'SF'
     HOLIDAY_CHOICES = (
         ('OF', 'Osterferien'),
@@ -69,8 +46,8 @@ class SchoolHolidays(models.Model):
     first_holiday = models.DateField(verbose_name=_("First Holiday"))
     last_holiday = models.DateField(blank=True, null=True,
                                     verbose_name=_("Last Holiday"))
-    country = models.CharField(max_length=5, choices=COUNTRY_CHOICES,
-                               default=NRW, verbose_name=_("Country"))
+    country = models.ForeignKey(Country, default=1, on_delete=models.CASCADE,
+                                verbose_name=_("Country"))
     name = models.CharField(max_length=100, choices=HOLIDAY_CHOICES,
                             default=SF, verbose_name=_("Holidays"))
 
