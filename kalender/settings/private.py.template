@@ -1,0 +1,2 @@
+LOCAL_SECRET_KEY = 'MySecretKey'
+PSQL_PASS = 'MyDBPassword'
