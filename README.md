@@ -2,9 +2,8 @@
 
 ## Allgemeine Informationen
 
-Diese Django App dient der visualisierung eines Jahreskalenders mit Feiertagen und Schulferien.
-
-Das ganze ist noch in einer frühen Entwicklungsstufe. 
+Diese Django App dient der Visualisierung eines Jahreskalenders mit Feiertagen
+und Schulferien. Das ganze ist noch in einer frühen Entwicklungsstufe. 
 
 ## Installation
 
@@ -29,7 +28,8 @@ Die Benötigte Python Pakete sind im Pipfile hinterlegt:
   * holidays
   * dev: django-debug-toolbar
 
-Installation der Pakete mit pipenv, aktivieren der Umgebung und initialisieren der Anwendung:  
+Installation der Pakete mit pipenv, aktivieren der Umgebung und initialisieren
+der Anwendung:  
 
 ```console
 $ pipenv install --dev

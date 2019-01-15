@@ -3,6 +3,38 @@ from django.db import models
 import datetime
 
 
+class Country(models.Model):
+    """List of countries supported by the holiday class and the school holiday
+       table
+    """
+    STATE = 's'
+    PROVINCE = 'p'
+    REGION_TYPES = (
+        (STATE, 'State'),
+        (PROVINCE, 'Province'),
+        ('', 'No Regions defined'),
+    )
+    country = models.CharField(max_length=100, verbose_name=_("Country"))
+    country_code = models.CharField(max_length=3, blank=True,
+                                    verbose_name=_("Country Code"))
+    region = models.CharField(max_length=100, blank=True,
+                              verbose_name=_("Region"))
+    region_code = models.CharField(max_length=3, blank=True,
+                                   verbose_name=_("Region Code"))
+    region_type = models.CharField(max_length=1, choices=REGION_TYPES,
+                                   blank=True, verbose_name=_("Region Type"))
+
+    class Meta:
+        ordering = ['country_code']
+        verbose_name = _('Country')
+        verbose_name_plural = _('Countries')
+
+    def __str__(self):
+        return "{} {} ({}-{})".format(
+            self.country, self.region, self.country_code, self.region_code)
+
+
+
 class SchoolHolidays(models.Model):
     """Model for school holidays for different years and locations"""
     NRW = 'DE-NW'

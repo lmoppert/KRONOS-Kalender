@@ -5,6 +5,7 @@ syntax: glob
 *.sw?
 *~
 *.mo
+.env
 .DS_Store
 .settings
 .project
