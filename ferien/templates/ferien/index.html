@@ -8,8 +8,8 @@
 <ul>
   {% for choice in choices %}
   <li>
-    <a href="{% url 'country' choice.0 year %}">
-      {{ choice.1 }}
+    <a href="{% url 'country' choice.iso year %}">
+      {{ choice }}
     </a>
   </li>
   {% endfor %}

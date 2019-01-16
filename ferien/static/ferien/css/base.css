@@ -36,7 +36,7 @@ h1 small {
 }
 #calendar th, #calendar td {
     text-align: right;
-    padding: 6px 10px 4px 8px;
+    padding: 5px 8px 5px 8px;
 }
 #calendar th.month {
     font-size: 22px;
@@ -58,6 +58,10 @@ h1 small {
 }
 #calendar td.School {
     background: #ceeec9;
+}
+#calendar td.Today {
+    border: 4px solid #e22;
+    padding: 1px 4px 1px 4px;
 }
 #calendar td.Sa {
     background: #eee;

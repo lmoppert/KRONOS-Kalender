@@ -7,6 +7,7 @@ class Country(models.Model):
     """List of countries supported by the holiday class and the school holiday
        table
     """
+
     STATE = 's'
     PROVINCE = 'p'
     REGION_TYPES = (
@@ -22,14 +23,21 @@ class Country(models.Model):
                                    blank=True, verbose_name=_("Region Type"))
 
     class Meta:
-        ordering = ['country_code']
+        ordering = ['iso']
         verbose_name = _('Country')
         verbose_name_plural = _('Countries')
 
     def __str__(self):
-        return "{} {} ({}-{})".format(
-            self.country, self.region, self.country_code, self.region_code)
+        return "{} - {} ({})".format(
+            self.country, self.region, self.iso)
 
+    @property
+    def holidays(self):
+        import holidays
+
+        country_code = self.iso.split('-')[0]
+        state_code = self.iso.split('-')[1]
+        return holidays.CountryHoliday(country_code, prov=state_code)
 
 
 class SchoolHolidays(models.Model):

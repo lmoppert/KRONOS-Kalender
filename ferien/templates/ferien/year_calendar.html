@@ -29,6 +29,7 @@
           <td class="{{ day | date:"D" }}
             {% if day in bank_holidays %} Bank{% endif %}
             {% if day in school_holidays %} School{% endif %}
+            {% if day == today %} Today{% endif %}
             ">{{ day | date:"j" }}</td>
           {% endif %}
           {% endfor %}
