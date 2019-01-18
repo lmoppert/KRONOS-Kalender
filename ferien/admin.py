@@ -12,3 +12,5 @@ class CountryAdmin(admin.ModelAdmin):
 class SchoolHolidaysAdmin(admin.ModelAdmin):
     model = models.SchoolHolidays
     extra = 0
+    list_display = ('__str__', 'first_holiday', 'last_holiday')
+    list_filter = ('name', 'country')
