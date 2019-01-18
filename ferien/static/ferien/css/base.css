@@ -48,6 +48,10 @@ h1 small {
     color: #aad;
     font-weight: normal;
 }
+#calendar th.week.current {
+    border: 4px solid #aad;
+    padding: 1px 4px 1px 4px;
+}
 #calendar tr.weekdays th {
     background: #999;
     color: white;

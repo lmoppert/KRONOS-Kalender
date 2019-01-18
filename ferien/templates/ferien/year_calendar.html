@@ -10,8 +10,8 @@
 </h1>
 <div id="calendar">
   {% for month, name, number in year_calendar %}
-  {#% if forloop.counter == 1 or forloop.counter == 5 or forloop.counter == 9 %#} 
-  {% if forloop.counter == 1 or forloop.counter == 4 or forloop.counter == 7 or forloop.counter == 10 %} 
+  {% if forloop.counter == 1 or forloop.counter == 5 or forloop.counter == 9 %} 
+  {#% if forloop.counter == 1 or forloop.counter == 4 or forloop.counter == 7 or forloop.counter == 10 %#} 
   <div class="row">
   {% endif %}
     <div class="mblock">
@@ -22,7 +22,7 @@
           <th>&nbsp;</th><th>Mo</th><th>Di</th><th>Mi</th><th>Do</th><th>Fr</th><th>Sa</th><th>So</th>
         </tr>
         {% for week in month %}<tr>
-          <th class="week">{{ week.0 | date:"W" }}</th>
+          <th class="week{% if week.0|date:"W" == kw %} this-week{% endif %}">{{ week.0|date:"W" }}</th>
           {% for day in week %}
           {% if day.month != number %}<td class="empty">&nbsp;</td>
           {% else %}
@@ -36,8 +36,8 @@
         </tr>{% endfor %}
       </table>
     </div>
-  {#%  if forloop.counter == 4 or forloop.counter == 8 or forloop.counter == 12 %#} 
-  {% if forloop.counter == 3 or forloop.counter == 6 or forloop.counter == 9 or forloop.counter == 12 %} 
+  {%  if forloop.counter == 4 or forloop.counter == 8 or forloop.counter == 12 %} 
+  {#% if forloop.counter == 3 or forloop.counter == 6 or forloop.counter == 9 or forloop.counter == 12 %#} 
   </div>
   <div style="clear:both;"></div>
   {% endif %}
