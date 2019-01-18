@@ -56,8 +56,38 @@ h1 small {
     color: white;
 }
 #calendar td.Bank {
+    position: relative;
     font-weight: bold;
     color: #e22;
+}
+#calendar td.Bank span.tooltip {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 1s;
+    position: absolute;
+    z-index: 1;
+    width: 180px;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -90px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    font-size: 18px;
+}
+#calendar td.Bank span.tooltip:after {
+    content: " ";
+    position: absolute;
+    top: 100%;
+    left: 49%;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+#calendar td.Bank:hover span.tooltip {
+    visibility: visible;
+    opacity: 1;
 }
 #calendar td.School {
     background: #ceeec9;

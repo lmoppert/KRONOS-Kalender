@@ -36,6 +36,5 @@ def country_calendar(request, year, location):
         'bank_holidays': bank_holidays,
         'school_holidays': school_holidays,
         'year_calendar': year_calendar,
-        'holiday_list': holiday_list,
     }
     return render(request, 'ferien/year_calendar.html', context=context)

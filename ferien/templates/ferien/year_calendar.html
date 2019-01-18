@@ -27,14 +27,15 @@
           {% for day in week %}
           {% if day.month != number %}<td class="empty">&nbsp;</td>
           {% else %}
-          <td class="{{ day | date:"D" }}
+          <td class="{{ day | date:'D' }}
               {% if day in bank_holidays %} Bank{% endif %}
               {% if day in school_holidays %} School{% endif %}
-              {% if day == today %} Today{% endif %}"
-              {% if day in bank_holidays %}
-                title="{{ day|get_holiday:bank_holidays }}"
-              {% endif %}>
-            {{ day | date:"j" }}</td>
+              {% if day == today %} Today{% endif %}">
+            {{ day | date:"j" }}
+            {% if day in bank_holidays %}
+              <span class="tooltip">{{ day|get_holiday:bank_holidays }}</span>
+            {% endif %}
+          </td>
           {% endif %}
           {% endfor %}
         </tr>{% endfor %}
