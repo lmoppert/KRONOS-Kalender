@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% load i18n %}
+{% load ferien_extras %}
 
 {% block base_content %}
 
@@ -27,10 +28,13 @@
           {% if day.month != number %}<td class="empty">&nbsp;</td>
           {% else %}
           <td class="{{ day | date:"D" }}
-            {% if day in bank_holidays %} Bank{% endif %}
-            {% if day in school_holidays %} School{% endif %}
-            {% if day == today %} Today{% endif %}
-            ">{{ day | date:"j" }}</td>
+              {% if day in bank_holidays %} Bank{% endif %}
+              {% if day in school_holidays %} School{% endif %}
+              {% if day == today %} Today{% endif %}"
+              {% if day in bank_holidays %}
+                title="{{ day|get_holiday:bank_holidays }}"
+              {% endif %}>
+            {{ day | date:"j" }}</td>
           {% endif %}
           {% endfor %}
         </tr>{% endfor %}
@@ -42,22 +46,6 @@
   <div style="clear:both;"></div>
   {% endif %}
   {% endfor %}
-</div>
-<div id="bankholidays">
-  <div class="holidays">
-    <table>
-      {% for day, name in holiday_list.0 %}
-      <tr><th>{{ day | date:"d. F" }}</th><td>{{ name }}</td></tr>
-      {% endfor %}
-    </table>
-  </div>
-  <div class="holidays">
-    <table>
-      {% for day, name in holiday_list.1 %}
-      <tr><th>{{ day | date:"d. F" }}</th><td>{{ name }}</td></tr>
-      {% endfor %}
-    </table>
-  </div>
 </div>
 
 {% endblock %}

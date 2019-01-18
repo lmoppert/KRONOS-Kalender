@@ -30,7 +30,7 @@ def country_calendar(request, year, location):
         school_holidays.extend(holiday.get_holidays())
     context = {
         'today': today.date(),
-        'kw': today.isocalendar()[1],
+        'kw': str(today.isocalendar()[1]),
         'year': year,
         'state': country.region,
         'bank_holidays': bank_holidays,
