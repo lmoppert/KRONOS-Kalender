@@ -8,10 +8,10 @@ django-debug-toolbar = "*"
 
 [packages]
 django = "*"
-psycopg2 = "*"
 django-extensions = "*"
 holidays = "*"
 gunicorn = "*"
+psycopg2 = "*"
 
 [requires]
 python_version = "3"

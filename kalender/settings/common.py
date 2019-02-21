@@ -20,7 +20,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEBUG = False
 SECRET_KEY = LOCAL_SECRET_KEY
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = [
+    'kro-lev-srv-608.kronosww.com',
+    'kalender.kronosww.com',
+    'localhost',
+    '127.0.0.1',
+    '127.0.0.1:8765',
+]
 INTERNAL_IPS = ['127.0.0.1']
 
 
