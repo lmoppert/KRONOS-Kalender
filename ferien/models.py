@@ -18,7 +18,8 @@ class Country(models.Model):
     country = models.CharField(max_length=100, verbose_name=_("Country"))
     region = models.CharField(max_length=100, blank=True,
                               verbose_name=_("Region"))
-    iso = models.CharField(max_length=6, blank=True, verbose_name=_("ISO Code"))
+    iso = models.CharField(max_length=6, blank=True,
+                           verbose_name=_("ISO Code"))
     region_type = models.CharField(max_length=1, choices=REGION_TYPES,
                                    blank=True, verbose_name=_("Region Type"))
 
@@ -36,8 +37,13 @@ class Country(models.Model):
         import holidays
 
         country_code = self.iso.split('-')[0]
-        state_code = self.iso.split('-')[1]
-        return holidays.CountryHoliday(country_code, prov=state_code)
+        if self.region_type == self.STATE:
+            state_code = self.iso.split('-')[1]
+            return holidays.CountryHoliday(country_code, state=state_code)
+        elif self.region_type == self.PROVINCE:
+            prov_code = self.iso.split('-')[1]
+            return holidays.CountryHoliday(country_code, prov=prov_code)
+        return holidays.CountryHoliday(country_code)
 
 
 class SchoolHolidays(models.Model):
