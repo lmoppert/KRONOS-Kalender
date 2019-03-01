@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load ferien_extras %}
+
+{% block base_content %}
+
+<h1>
+  {% trans "Calendar" %} {{ year }}
+  <small>{{ state }}</small>
+</h1>
+<div id="calendar">
+  {% for month, name, number in year_calendar %}
+  {% if forloop.counter == 1 or forloop.counter == 5 or forloop.counter == 9 %} 
+  {#% if forloop.counter == 1 or forloop.counter == 4 or forloop.counter == 7 or forloop.counter == 10 %#} 
+  <div class="row">
+  {% endif %}
+    <div class="mblock">
+      <table border=0 cellspacing=0 cellpadding=0>
+        <tr>
+          <th class="month" colspan="8">{{ name }}</th>
+        </tr><tr class="weekdays">
+          <th>&nbsp;</th><th>Mo</th><th>Di</th><th>Mi</th><th>Do</th><th>Fr</th><th>Sa</th><th>So</th>
+        </tr>
+        {% for week in month %}<tr>
+          <th class="week{% if week.0|date:"W" == kw %} this-week{% endif %}">{{ week.0|date:"W" }}</th>
+          {% for day in week %}
+          {% if day.month != number %}<td class="empty">&nbsp;</td>
+          {% else %}
+          <td class="{{ day | date:'D' }}
+              {% for bank_holiday in bank_holidays %}
+                {% if day in bank_holiday %} Bank-Holiday{% endif %}
+              {% endfor %}
+              {% if day in school_holidays %} School{% endif %}
+              {% if day == today %} Today{% endif %}">
+            {{ day | date:"j" }}
+            <span class="tooltip">
+              {% for bank_holiday in bank_holidays %}
+                {% if day in bank_holiday %}
+                  {{ day|get_holiday:bank_holiday }}<br>
+                {% endif %}
+              {% endfor %}
+            </span>
+          </td>
+          {% endif %}
+          {% endfor %}
+        </tr>{% endfor %}
+      </table>
+    </div>
+  {%  if forloop.counter == 4 or forloop.counter == 8 or forloop.counter == 12 %} 
+  {#% if forloop.counter == 3 or forloop.counter == 6 or forloop.counter == 9 or forloop.counter == 12 %#} 
+  </div>
+  <div style="clear:both;"></div>
+  {% endif %}
+  {% endfor %}
+</div>
+
+{% endblock %}
+
+<!-- 
+    vim:syntax=htmldjango:ts=2:sw=2:sts=2:nowrap
+-->

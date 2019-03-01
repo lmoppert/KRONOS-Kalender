@@ -55,28 +55,18 @@ h1 small {
     background: #999;
     color: white;
 }
+#calendar td.Bank-Holiday, 
 #calendar td.Bank {
     position: relative;
     font-weight: bold;
     color: #e22;
 }
-#calendar td.Bank span.tooltip {
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 1s;
-    position: absolute;
-    z-index: 1;
-    width: 180px;
-    bottom: 100%;
-    left: 50%;
-    margin-left: -90px;
-    background-color: black;
-    color: white;
-    text-align: center;
-    padding: 5px 0;
-    border-radius: 6px;
-    font-size: 18px;
+#calendar td.Bank-Holiday:hover span.tooltip,
+#calendar td.Bank:hover span.tooltip {
+    visibility: visible;
+    opacity: 1;
 }
+#calendar td.Bank-Holiday span.tooltip:after,
 #calendar td.Bank span.tooltip:after {
     content: " ";
     position: absolute;
@@ -85,9 +75,29 @@ h1 small {
     border-style: solid;
     border-color: black transparent transparent transparent;
 }
-#calendar td.Bank:hover span.tooltip {
-    visibility: visible;
-    opacity: 1;
+#calendar td.Bank-Holiday span.tooltip,
+#calendar td.Bank span.tooltip {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 1s;
+    position: absolute;
+    z-index: 1;
+    background-color: black;
+    color: white;
+    padding: 5px 0;
+    border-radius: 6px;
+    font-size: 18px;
+}
+#calendar td.Bank-Holiday span.tooltip {
+    width: 250px;
+    margin-left: -125px;
+    text-align: left;
+    padding-left: 10px;
+}
+#calendar td.Bank span.tooltip {
+    width: 180px;
+    margin-left: -90px;
+    text-align: center;
 }
 #calendar td.School {
     background: #ceeec9;
