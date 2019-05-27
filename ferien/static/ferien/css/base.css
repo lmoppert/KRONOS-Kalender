@@ -25,6 +25,10 @@ h1 small {
 .holidays table th {
     text-align: left;
 }
+#calendar {
+    margin: auto;
+    max-width: 1400px;
+}
 #calendar .row {
     padding: 15px 0;
     clear: both;

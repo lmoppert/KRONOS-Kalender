@@ -37,6 +37,7 @@
             <span class="tooltip">
               {% for bank_holiday in bank_holidays %}
                 {% if day in bank_holiday %}
+                  {{ bank_holiday.country }}:
                   {{ day|get_holiday:bank_holiday }}<br>
                 {% endif %}
               {% endfor %}
