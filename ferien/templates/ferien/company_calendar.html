@@ -5,11 +5,11 @@
 
 {% block base_content %}
 
-<h1>
-  {% trans "Calendar" %} {{ year }}
-  <small>{{ state }}</small>
-</h1>
 <div id="calendar">
+  <h1>
+    {% trans "Calendar" %} {{ year }}
+    <small>{{ state }}</small>
+  </h1>
   {% for month, name, number in year_calendar %}
   {% if forloop.counter == 1 or forloop.counter == 5 or forloop.counter == 9 %} 
   {#% if forloop.counter == 1 or forloop.counter == 4 or forloop.counter == 7 or forloop.counter == 10 %#} 
@@ -37,7 +37,7 @@
             <span class="tooltip">
               {% for bank_holiday in bank_holidays %}
                 {% if day in bank_holiday %}
-                  {{ bank_holiday.country }}:
+                  {{ bank_holiday.country }}{% if bank_holiday.prov %} ({{ bank_holiday.prov }}){% endif %}{% if  bank_holiday.state %} ({{ bank_holiday.state }}){% endif %}:
                   {{ day|get_holiday:bank_holiday }}<br>
                 {% endif %}
               {% endfor %}
